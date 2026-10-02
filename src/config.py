@@ -1,0 +1,35 @@
+"""Shared project paths and model/pipeline constants."""
+
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+SRC_DIR = PROJECT_ROOT / "src"
+MODELS_DIR = PROJECT_ROOT / "models"
+WHISPER_MODEL_DIR = MODELS_DIR / "whisper"
+MEDIUM_MODEL_DIR = WHISPER_MODEL_DIR / "medium"
+TRANSFORMERS_MODEL_DIR = MODELS_DIR / "whisper_transformers"
+OLLAMA_MODELS_DIR = MODELS_DIR / "ollama"
+OLLAMA_HOST = "127.0.0.1"
+OLLAMA_PORT = 11434
+OLLAMA_SERVER_URL = f"http://{OLLAMA_HOST}:{OLLAMA_PORT}"
+OLLAMA_HOST_SETTING = f"{OLLAMA_HOST}:{OLLAMA_PORT}"
+OLLAMA_REQUEST_TIMEOUT_SECONDS = 2
+OLLAMA_STARTUP_TIMEOUT_SECONDS = 30
+OLLAMA_POLL_INTERVAL_SECONDS = 1
+OLLAMA_RESTART_WAIT_SECONDS = 3
+HF_CACHE_DIR = MODELS_DIR / "hf_cache"
+INPUT_DIR = PROJECT_ROOT / "input"
+OUTPUT_DIR = PROJECT_ROOT / "output"
+OLLAMA_SERVER_LOG = OUTPUT_DIR / "ollama_server.log"
+PROMPT_PATH = SRC_DIR / "prompt.txt"
+
+WHISPER_MODEL_NAME = "large-v3"
+FASTER_WHISPER_REPO = "Systran/faster-whisper-large-v3"
+FASTER_WHISPER_MEDIUM_REPO = "Systran/faster-whisper-medium"
+TRANSFORMERS_WHISPER_REPO = "openai/whisper-large-v3"
+OLLAMA_MODEL_NAME = "qwen2.5:7b"
+CHUNK_SIZE = 6000
+CHUNK_OVERLAP_LINES = 2
+FFMPEG_FILTERS = ("highpass=f=80", "dynaudnorm=f=150:g=15")
+FFMPEG_DENOISE_FILTER = "afftdn=nf=-25"
